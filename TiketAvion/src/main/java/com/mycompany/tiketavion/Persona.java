@@ -5,6 +5,8 @@
  */
 package com.mycompany.tiketavion;
 
+import java.util.Date;
+
 /**
  *
  * @author daniel
@@ -12,6 +14,7 @@ package com.mycompany.tiketavion;
 public class Persona {
     int id;
     String nombre;
+    Date fecha;
 
     public Persona(int id, String nombre) {
         this.id = id;

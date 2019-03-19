@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
  */
 public class Avion {
     int id;
+    int total;
     String[] avion={"s","a","a","a","s","a","d","a","a","d","s","s","d","r","s","w","d","r","q","e","t"};
     public Avion(int id) {
         this.id = id;

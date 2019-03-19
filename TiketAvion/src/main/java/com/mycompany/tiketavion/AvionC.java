@@ -16,6 +16,7 @@ public class AvionC extends Avion{
 
     public AvionC(int id) {
         super(id);
+        
     }
 
     public HashMap<String, Silla> getSillasPequeñas() {
@@ -45,9 +46,18 @@ public class AvionC extends Avion{
         this.avion[7]="   /          ["+sillasPequeñas.get("A1").getEstado()+"]["+sillasPequeñas.get("A2").getEstado()+"] ["+sillasPequeñas.get("A3").getEstado()+"]["+sillasPequeñas.get("A4").getEstado()+"]           \\";
         this.avion[8]="  /            A5 A6  A7 A8            \\";
         this.avion[9]=" /            ["+sillasPequeñas.get("A5").getEstado()+"]["+sillasPequeñas.get("A6").getEstado()+"] ["+sillasPequeñas.get("A7").getEstado()+"]["+sillasPequeñas.get("A8").getEstado()+"]             \\";
-        this.avion[10]="-------------| A5 A6  A7 A8 |-------------";
-        this.avion[11]="             |["+sillasPequeñas.get("A5").getEstado()+"]["+sillasPequeñas.get("A6").getEstado()+"] ["+sillasPequeñas.get("A7").getEstado()+"]["+sillasPequeñas.get("A8").getEstado()+"]|";
-        for(int i = 0;i<=12;i++){
+        this.avion[10]="-------------| A9 A10 A11A12 |-------------";
+        this.avion[11]="             |["+sillasPequeñas.get("A9").getEstado()+"]["+sillasPequeñas.get("A10").getEstado()+"] ["+sillasPequeñas.get("A11").getEstado()+"]["+sillasPequeñas.get("A12").getEstado()+"]|";
+        this.avion[12]="             \\             / ";
+        this.avion[13]="              \\           /";
+        this.avion[14]="               \\         /";
+        this.avion[15]="                \\   |   /";
+        this.avion[16]="                 \\  |  /";
+        this.avion[17]="                  \\ | /";
+        this.avion[18]="                  / | \\";
+        this.avion[19]="                 /  |  \\";
+        this.avion[20]="                ---------";
+        for(int i = 0;i<=20;i++){
             System.out.println(avion[i]);
         }
         
