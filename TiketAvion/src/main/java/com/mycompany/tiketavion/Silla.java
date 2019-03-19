@@ -9,13 +9,19 @@ package com.mycompany.tiketavion;
  *
  * @author daniel
  */
-public class Persona {
+public class Silla {
     int id;
+    char estado;
     String nombre;
-
-    public Persona(int id, String nombre) {
+    Persona persona;
+    public Silla(int id, String nombre, Persona persona) {
         this.id = id;
         this.nombre = nombre;
+        this.persona = persona;
+    }
+
+    public char getEstado() {
+        return estado;
     }
 
     public int getId() {
@@ -26,6 +32,10 @@ public class Persona {
         return nombre;
     }
 
+    public Persona getPersona() {
+        return persona;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -33,8 +43,19 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public void mostrarPersona(){
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public void setEstado(char estado) {
+        this.estado = estado;
+    }
+    
+    public void mostrarSilla(){
+        System.err.println("Datos");
         System.err.println("numero: "+this.id);
-        System.err.println("numero: "+this.getNombre());
+        System.err.println("nombre: "+this.nombre);
+        System.err.println("persona"+persona.nombre);
     }
 }
