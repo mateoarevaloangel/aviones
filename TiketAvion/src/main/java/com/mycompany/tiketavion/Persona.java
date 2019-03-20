@@ -5,6 +5,7 @@
  */
 package com.mycompany.tiketavion;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,14 +15,14 @@ import java.util.Date;
 public class Persona {
     int id;
     String nombre;
-    Date fecha;
+    SimpleDateFormat  fecha;
 
     public Persona(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public Date getFecha() {
+    public SimpleDateFormat getFecha() {
         return fecha;
     }
 
@@ -41,7 +42,7 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(SimpleDateFormat fecha) {
         this.fecha = fecha;
     }
     

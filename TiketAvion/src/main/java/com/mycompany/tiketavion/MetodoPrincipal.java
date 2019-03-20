@@ -7,6 +7,10 @@ package com.mycompany.tiketavion;
 
 import static com.mycompany.tiketavion.Main.avionc;
 import static com.mycompany.tiketavion.Main.me;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -22,7 +26,8 @@ public class MetodoPrincipal {
     AvionA a= new AvionA(1);
     AvionB b= new AvionB(1);
     AvionC c= new AvionC(1);
-    public void menu(){
+    private Object formatter;
+    public void menu() throws ParseException{
         HashMap<String, Avion> aviones = new HashMap<String, Avion>();
         aviones=me.llenar();
         String entradaTexto;   
@@ -30,6 +35,10 @@ public class MetodoPrincipal {
         b=(AvionB)aviones.get("avionb");
         c=(AvionC)aviones.get("avionc");
         while(1==1){            
+            String nombre;
+            Integer cedula;
+            SimpleDateFormat fecha;
+            String clave;
             System.out.println ("Ingrese 'v' para ver los asientos 'c' para comprar una asiento");
             Scanner entradaEscaner = new Scanner (System.in);
             entradaTexto=entradaEscaner.nextLine ();
@@ -53,10 +62,26 @@ public class MetodoPrincipal {
                             case "v":
                                 System.out.println ("Ingrese el asiento que desea comprar");
                                 entradaTexto=entradaEscaner.nextLine ();
+                                clave=entradaTexto;
                                 if(a.sillasVip.containsKey(entradaTexto)){
                                     if(a.sillasVip.get(entradaTexto).getEstado()=='l'){
-                                        a.sillasVip.get(entradaTexto).setEstado('o');
-                                        System.out.println("Comprar exitosa");
+                                        try{
+                                            System.out.println ("Ingrese su nombre");
+                                            nombre=entradaEscaner.nextLine ();;
+                                            System.out.println ("Ingrese su cedula");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            cedula=Integer.parseInt(entradaTexto);
+                                            System.out.println ("Ingrese su fecha de nacimiento yyyy-MM-dd");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            fecha=new SimpleDateFormat(entradaTexto);
+                                            a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                            //a.sillasVip.get(clave).persona.setFecha((SimpleDateFormat) SimpleDateFormat.getTimeInstance());
+                                            a.sillasVip.get(entradaTexto).setEstado('o');
+                                            System.out.println("Comprar exitosa");
+                                        }catch(Exception e){
+                                            System.out.println("los datos son erroneos");
+                                        }
+                                        
                                     }else{
                                         System.out.println("el asisento no esta disponible");
                                     }                       
