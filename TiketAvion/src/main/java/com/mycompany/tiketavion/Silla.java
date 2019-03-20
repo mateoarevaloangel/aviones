@@ -14,10 +14,15 @@ public class Silla {
     char estado;
     String nombre;
     Persona persona;
+    int precio;
     public Silla(int id, String nombre, Persona persona) {
         this.id = id;
         this.nombre = nombre;
         this.persona = persona;
+    }
+
+    public int getPrecio() {
+        return precio;
     }
 
     public char getEstado() {
@@ -50,6 +55,10 @@ public class Silla {
 
     public void setEstado(char estado) {
         this.estado = estado;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
     
     public void mostrarSilla(){

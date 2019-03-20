@@ -63,6 +63,9 @@ public class AvionA extends Avion{
         this.avion[18]="                  / | \\";
         this.avion[19]="                 /  |  \\";
         this.avion[20]="                ---------";
+    }
+    public void mostrar(){
+        System.out.println("Avion A");
         for(int i = 0;i<=20;i++){
             System.out.println(avion[i]);
         }

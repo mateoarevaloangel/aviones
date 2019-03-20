@@ -12,13 +12,13 @@ import java.util.HashMap;
  * @author daniel
  */
 public class AvionB extends Avion{
-    HashMap<Integer, Silla> sillasNormales;
+    HashMap<String, Silla> sillasNormales;
 
     public AvionB(int id) {
         super(id);
     }
 
-    public HashMap<Integer, Silla> getSillasNormales() {
+    public HashMap<String, Silla> getSillasNormales() {
         return sillasNormales;
     }
 
@@ -26,7 +26,7 @@ public class AvionB extends Avion{
         return avion;
     }
 
-    public void setSillasNormales(HashMap<Integer, Silla> sillasNormales) {
+    public void setSillasNormales(HashMap<String, Silla> sillasNormales) {
         this.sillasNormales = sillasNormales;
     }
 
@@ -54,10 +54,12 @@ public class AvionB extends Avion{
         this.avion[17]="                  \\ | /";
         this.avion[18]="                  / | \\";
         this.avion[19]="                 /  |  \\";
-        this.avion[20]="                ---------";
+        this.avion[20]="                ---------";    
+    }
+    public void mostrar(){
+        System.out.println("Avion B");
         for(int i = 0;i<=20;i++){
             System.out.println(avion[i]);
         }
-        
     }
 }

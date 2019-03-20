@@ -21,6 +21,10 @@ public class Persona {
         this.nombre = nombre;
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
     public int getId() {
         return id;
     }
@@ -36,8 +40,13 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    
     public void mostrarPersona(){
-        System.err.println("numero: "+this.id);
+        System.err.println("numero: "+this.getId());
         System.err.println("numero: "+this.getNombre());
     }
 }
