@@ -117,7 +117,7 @@ public class MetodoPrincipal {
                                             System.out.println ("Ingrese su año de nacimiento");
                                             entradaTexto=entradaEscaner.nextLine ();
                                             fecha=new SimpleDateFormat(entradaTexto);
-                                            a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                            a.sillasNormales.get(clave).setPersona(new Persona(cedula,nombre));
                                             year=Integer.parseInt(entradaTexto);
                                             System.out.println ("Ingrese su mes de nacimiento");
                                             entradaTexto=entradaEscaner.nextLine ();
@@ -146,6 +146,7 @@ public class MetodoPrincipal {
                     case "B":
                         System.out.println ("Ingrese el asiento que desea comprar");
                         entradaTexto=entradaEscaner.nextLine ();
+                        clave = entradaTexto;
                         if(b.sillasNormales.containsKey(entradaTexto)){
                             if(b.sillasNormales.get(entradaTexto).getEstado()=='l'){
                                 try{
@@ -157,7 +158,7 @@ public class MetodoPrincipal {
                                     System.out.println ("Ingrese su año de nacimiento");
                                     entradaTexto=entradaEscaner.nextLine ();
                                     fecha=new SimpleDateFormat(entradaTexto);
-                                    a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                    b.sillasNormales.get(clave).setPersona(new Persona(cedula,nombre));
                                     year=Integer.parseInt(entradaTexto);
                                     System.out.println ("Ingrese su mes de nacimiento");
                                     entradaTexto=entradaEscaner.nextLine ();
@@ -183,6 +184,7 @@ public class MetodoPrincipal {
                     case "C":
                         System.out.println ("Ingrese el asiento que desea comprar");
                         entradaTexto=entradaEscaner.nextLine ();
+                        clave = entradaTexto;
                         if(c.sillasPequeñas.containsKey(entradaTexto)){
                             if(c.sillasPequeñas.get(entradaTexto).getEstado()=='l'){
                                 try{
@@ -191,10 +193,11 @@ public class MetodoPrincipal {
                                     System.out.println ("Ingrese su cedula");
                                     entradaTexto=entradaEscaner.nextLine ();
                                     cedula=Integer.parseInt(entradaTexto);
+                                    c.sillasPequeñas.get(clave).setPersona(new Persona(cedula,nombre));
                                     System.out.println ("Ingrese su año de nacimiento");
                                     entradaTexto=entradaEscaner.nextLine ();
                                     fecha=new SimpleDateFormat(entradaTexto);
-                                    a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                    
                                     year=Integer.parseInt(entradaTexto);
                                     System.out.println ("Ingrese su mes de nacimiento");
                                     entradaTexto=entradaEscaner.nextLine ();
