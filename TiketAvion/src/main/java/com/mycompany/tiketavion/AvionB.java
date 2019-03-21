@@ -62,4 +62,13 @@ public class AvionB extends Avion{
             System.out.println(avion[i]);
         }
     }
+    public Integer calcularTotal(){
+        total=0;
+        for(Silla si:sillasNormales.values()){
+            if(si.getEstado()=='o'){
+                total+=si.getPrecio();
+            }
+        }
+        return total;
+   }
 }

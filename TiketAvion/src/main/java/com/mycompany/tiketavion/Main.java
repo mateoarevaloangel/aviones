@@ -5,6 +5,7 @@
  */
 package com.mycompany.tiketavion;
 
+import java.text.ParseException;
 import java.util.HashMap;
 
 /**
@@ -20,7 +21,7 @@ public class Main {
     static AvionA aviona = new AvionA(1);
     static AvionB avionb = new AvionB(1);
     static MetodoPrincipal me= new MetodoPrincipal();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         me.menu();
     }   
 }

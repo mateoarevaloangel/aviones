@@ -31,4 +31,7 @@ public class Avion {
         
         
     }
+    public Integer calcularTotal(){
+        return null;
+    }
 }

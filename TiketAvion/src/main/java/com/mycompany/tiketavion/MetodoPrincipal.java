@@ -7,6 +7,7 @@ package com.mycompany.tiketavion;
 
 import static com.mycompany.tiketavion.Main.avionc;
 import static com.mycompany.tiketavion.Main.me;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -27,19 +28,21 @@ public class MetodoPrincipal {
     AvionB b= new AvionB(1);
     AvionC c= new AvionC(1);
     private Object formatter;
+    private Object scanner;
     public void menu() throws ParseException{
         HashMap<String, Avion> aviones = new HashMap<String, Avion>();
         aviones=me.llenar();
-        String entradaTexto;   
-        a=(AvionA)aviones.get("aviona");
-        b=(AvionB)aviones.get("avionb");
-        c=(AvionC)aviones.get("avionc");
-        while(1==1){            
+        String entradaTexto;  
+        int year, month, date;       
+        while(1==1){  
+            a=(AvionA)aviones.get("aviona");
+            b=(AvionB)aviones.get("avionb");
+            c=(AvionC)aviones.get("avionc");
             String nombre;
             Integer cedula;
             SimpleDateFormat fecha;
-            String clave;
-            System.out.println ("Ingrese 'v' para ver los asientos 'c' para comprar una asiento");
+            String clave = null;
+            System.out.println ("Ingrese 'v' para ver los asientos 'c' para comprar una asiento 't' pra conocer los totales de ventas");
             Scanner entradaEscaner = new Scanner (System.in);
             entradaTexto=entradaEscaner.nextLine ();
             switch (entradaTexto) {
@@ -54,6 +57,7 @@ public class MetodoPrincipal {
                 case "c":
                     System.out.println ("Ingrese el avion donde desea hacer la compra");
                     entradaTexto=entradaEscaner.nextLine ();
+                    
                     switch (entradaTexto) {
                     case "A":
                         System.out.println ("Ingrese 'v' para vip y 'n' para asiento normal");
@@ -71,15 +75,24 @@ public class MetodoPrincipal {
                                             System.out.println ("Ingrese su cedula");
                                             entradaTexto=entradaEscaner.nextLine ();
                                             cedula=Integer.parseInt(entradaTexto);
-                                            System.out.println ("Ingrese su fecha de nacimiento yyyy-MM-dd");
+                                            System.out.println ("Ingrese su año de nacimiento");
                                             entradaTexto=entradaEscaner.nextLine ();
                                             fecha=new SimpleDateFormat(entradaTexto);
                                             a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
-                                            //a.sillasVip.get(clave).persona.setFecha((SimpleDateFormat) SimpleDateFormat.getTimeInstance());
-                                            a.sillasVip.get(entradaTexto).setEstado('o');
+                                            year=Integer.parseInt(entradaTexto);
+                                            System.out.println ("Ingrese su mes de nacimiento");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            month=Integer.parseInt(entradaTexto);
+                                            System.out.println ("Ingrese hora de nacimiento");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            date=Integer.parseInt(entradaTexto);
+                                            Date da= new Date(date,month,year);
+                                            //System.out.println(da);
+                                            a.sillasVip.get(clave).persona.setFecha(da);
+                                            a.sillasVip.get(clave).setEstado('o');
                                             System.out.println("Comprar exitosa");
                                         }catch(Exception e){
-                                            System.out.println("los datos son erroneos");
+                                            System.out.println(e);
                                         }
                                         
                                     }else{
@@ -92,9 +105,34 @@ public class MetodoPrincipal {
                             case "n":
                                 System.out.println ("Ingrese el asiento que desea comprar");
                                 entradaTexto=entradaEscaner.nextLine ();
+                                clave = entradaTexto;
                                 if(a.sillasNormales.containsKey(entradaTexto)){
                                     if(a.sillasNormales.get(entradaTexto).getEstado()=='l'){
-                                        a.sillasNormales.get(entradaTexto).setEstado('o');
+                                        try{
+                                            System.out.println ("Ingrese su nombre");
+                                            nombre=entradaEscaner.nextLine ();
+                                            System.out.println ("Ingrese su cedula");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            cedula=Integer.parseInt(entradaTexto);
+                                            System.out.println ("Ingrese su año de nacimiento");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            fecha=new SimpleDateFormat(entradaTexto);
+                                            a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                            year=Integer.parseInt(entradaTexto);
+                                            System.out.println ("Ingrese su mes de nacimiento");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            month=Integer.parseInt(entradaTexto);
+                                            System.out.println ("Ingrese hora de nacimiento");
+                                            entradaTexto=entradaEscaner.nextLine ();
+                                            date=Integer.parseInt(entradaTexto);
+                                            Date da= new Date(date,month,year);
+                                            //System.out.println(da);
+                                            a.sillasNormales.get(clave).persona.setFecha(da);
+                                            a.sillasNormales.get(clave).setEstado('o');
+                                            System.out.println("Comprar exitosa");
+                                        }catch(Exception e){
+                                            System.out.println(e);
+                                        }
                                         System.out.println("Comprar exitosa");
                                     }else{
                                         System.out.println("el asisento no esta disponible");
@@ -110,7 +148,30 @@ public class MetodoPrincipal {
                         entradaTexto=entradaEscaner.nextLine ();
                         if(b.sillasNormales.containsKey(entradaTexto)){
                             if(b.sillasNormales.get(entradaTexto).getEstado()=='l'){
-                                b.sillasNormales.get(entradaTexto).setEstado('o');
+                                try{
+                                    System.out.println ("Ingrese su nombre");
+                                    nombre=entradaEscaner.nextLine ();;
+                                    System.out.println ("Ingrese su cedula");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    cedula=Integer.parseInt(entradaTexto);
+                                    System.out.println ("Ingrese su año de nacimiento");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    fecha=new SimpleDateFormat(entradaTexto);
+                                    a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                    year=Integer.parseInt(entradaTexto);
+                                    System.out.println ("Ingrese su mes de nacimiento");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    month=Integer.parseInt(entradaTexto);
+                                    System.out.println ("Ingrese hora de nacimiento");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    date=Integer.parseInt(entradaTexto);
+                                    Date da= new Date(date,month,year);
+                                    b.sillasNormales.get(clave).persona.setFecha(da);
+                                    b.sillasNormales.get(clave).setEstado('o');
+                                    System.out.println("Comprar exitosa");
+                                }catch(Exception e){
+                                        System.out.println(e);
+                                    }
                                 System.out.println("Comprar exitosa");
                             }else{
                                 System.out.println("el asisento no esta disponible");
@@ -124,7 +185,30 @@ public class MetodoPrincipal {
                         entradaTexto=entradaEscaner.nextLine ();
                         if(c.sillasPequeñas.containsKey(entradaTexto)){
                             if(c.sillasPequeñas.get(entradaTexto).getEstado()=='l'){
-                                c.sillasPequeñas.get(entradaTexto).setEstado('o');
+                                try{
+                                    System.out.println ("Ingrese su nombre");
+                                    nombre=entradaEscaner.nextLine ();;
+                                    System.out.println ("Ingrese su cedula");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    cedula=Integer.parseInt(entradaTexto);
+                                    System.out.println ("Ingrese su año de nacimiento");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    fecha=new SimpleDateFormat(entradaTexto);
+                                    a.sillasVip.get(clave).setPersona(new Persona(cedula,nombre));
+                                    year=Integer.parseInt(entradaTexto);
+                                    System.out.println ("Ingrese su mes de nacimiento");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    month=Integer.parseInt(entradaTexto);
+                                    System.out.println ("Ingrese hora de nacimiento");
+                                    entradaTexto=entradaEscaner.nextLine ();
+                                    date=Integer.parseInt(entradaTexto);
+                                    Date da= new Date(date,month,year);
+                                    c.sillasPequeñas.get(clave).persona.setFecha(da);
+                                    c.sillasPequeñas.get(clave).setEstado('o');
+                                    System.out.println("Comprar exitosa");
+                                }catch(Exception e){
+                                    System.out.println(e);
+                                    }
                                 System.out.println("Comprar exitosa");
                             }else{
                                 System.out.println("el asisento no esta disponible");
@@ -136,6 +220,30 @@ public class MetodoPrincipal {
                         
                     }
                     break;
+                case "t":
+                    System.out.println ("Ingrese la letra del avion del cual desea obtener el total o ingrese 'N'para obtener la suma de todos");
+                    entradaTexto=entradaEscaner.nextLine ();
+                    int total=0;
+                    switch (entradaTexto) {
+                        case "A":
+                                total=aviones.get("aviona").calcularTotal();
+                                System.out.println("el avion A resivio "+total+" de ingresos");
+                           break;
+                        case "B":
+                                total=aviones.get("avionb").calcularTotal();
+                                System.out.println("el avion B resivio "+total+" de ingresos");
+                           break;
+                        case "C":
+                                total=aviones.get("avionc").calcularTotal();
+                                System.out.println("el avion C resivio "+total+" de ingresos");
+                           break;
+                        case "N":
+                                total=calcularNeto(aviones);
+                                System.out.println("el total "+total+" de ingresos");
+                           break;
+                    }
+                    
+                   break;      
                 default:
                     System.out.println ("Opcion no valida");
                     break;
@@ -171,6 +279,9 @@ public class MetodoPrincipal {
         sillas.get("A10").setEstado('l');
         sillas.get("A11").setEstado('o');
         sillas.get("A12").setEstado('l');
+        for(Silla si:sillas.values()){
+            si.setPrecio(500000);
+        }
         HashMap<String, Silla> sillasVip = new HashMap<String, Silla>();
         sillasVip.put("A1",new Silla(1,"A1",new Persona(8,"daniela")));
         sillasVip.put("A2",new Silla(1,"A2",null));
@@ -182,12 +293,15 @@ public class MetodoPrincipal {
         sillasVip.put("A8",new Silla(1,"A8",null));
         sillasVip.get("A1").setEstado('o');
         sillasVip.get("A2").setEstado('l');
-        sillasVip.get("A3").setEstado('o');
-        sillasVip.get("A4").setEstado('l');
-        sillasVip.get("A5").setEstado('o');
-        sillasVip.get("A6").setEstado('l');
-        sillasVip.get("A7").setEstado('o');
-        sillasVip.get("A8").setEstado('l');
+        sillasVip.get("A3").setEstado('l');
+        sillasVip.get("A4").setEstado('o');
+        sillasVip.get("A5").setEstado('l');
+        sillasVip.get("A6").setEstado('o');
+        sillasVip.get("A7").setEstado('l');
+        sillasVip.get("A8").setEstado('o');
+        for(Silla si:sillasVip.values()){
+            si.setPrecio(900000);
+        }
         HashMap<String, Silla> sillasNormales = new HashMap<String, Silla>();
         sillasNormales.put("B1",new Silla(1,"B1",new Persona(8,"daniela")));
         sillasNormales.put("B2",new Silla(1,"B2",null));
@@ -209,6 +323,9 @@ public class MetodoPrincipal {
         sillasNormales.get("B6").setEstado('l');
         sillasNormales.get("B7").setEstado('o');
         sillasNormales.get("B8").setEstado('l');
+        for(Silla si:sillasNormales.values()){
+            si.setPrecio(700000);
+        }
         HashMap<String, Silla> sillasB= new HashMap<String, Silla>();
         sillasB.put("A1",new Silla(1,"A1",new Persona(8,"daniela")));
         sillasB.put("A2",new Silla(1,"A2",null));
@@ -234,6 +351,9 @@ public class MetodoPrincipal {
         sillasB.get("A10").setEstado('l');
         sillasB.get("A11").setEstado('o');
         sillasB.get("A12").setEstado('l');
+        for(Silla si:sillasB.values()){
+            si.setPrecio(600000);
+        }
         avionc.setSillasPequeñas(sillas);
         aviona.setSillasVip(sillasVip);
         aviona.setSillasNormales(sillasNormales);
@@ -246,4 +366,15 @@ public class MetodoPrincipal {
         aviones.put("avionc", avionc);
         return aviones;
         }
+    public Integer calcularNeto(HashMap<String, Avion> map){
+        Integer total=0;
+        for(Avion av:map.values()){
+            total+=av.calcularTotal();
+        }
+        return total;
+    }
+
+    private Object SimpleDateFormat(String ddMMyyyy) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

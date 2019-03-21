@@ -31,10 +31,16 @@ public class AvionA extends Avion{
     }
 
     public void setSillasVip(HashMap<String, Silla> sillasVip) {
+        for(Silla si:sillasVip.values()){
+        sillasVip.get(si.getNombre()).setPrecio(900000);
+    }
         this.sillasVip = sillasVip;
     }
 
     public void setSillasNormales(HashMap<String, Silla> sillasNormales) {
+        for(Silla si:sillasNormales.values()){
+        sillasNormales.get(si.getNombre()).setPrecio(500000);
+    }
         this.sillasNormales = sillasNormales;
     }
 
@@ -69,5 +75,19 @@ public class AvionA extends Avion{
         for(int i = 0;i<=20;i++){
             System.out.println(avion[i]);
         }
+    }
+    public Integer calcularTotal(){
+        total=0;
+        for(Silla si:sillasVip.values()){
+            if(si.getEstado()=='o'){
+                total+=si.getPrecio();
+            }
+        }
+        for(Silla si:sillasNormales.values()){
+            if(si.getEstado()=='o'){
+                total+=si.getPrecio();
+            }
+        }
+        return total;
     }
 }

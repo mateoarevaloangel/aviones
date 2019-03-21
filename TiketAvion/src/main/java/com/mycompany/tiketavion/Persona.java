@@ -15,14 +15,14 @@ import java.util.Date;
 public class Persona {
     int id;
     String nombre;
-    SimpleDateFormat  fecha;
+    Date  fecha;
 
     public Persona(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public SimpleDateFormat getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -42,7 +42,7 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public void setFecha(SimpleDateFormat fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
     
