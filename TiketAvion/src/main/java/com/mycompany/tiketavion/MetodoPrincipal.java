@@ -19,16 +19,30 @@ import java.util.Scanner;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class MetodoPrincipal {
+    /**
+     * avion c
+     */
     static AvionC avionc = new AvionC(1);
+    /**
+     * avion b
+     */
     static AvionA aviona = new AvionA(1);
+    /**
+     * avion a
+     */
     static AvionB avionb = new AvionB(1);
     AvionA a= new AvionA(1);
     AvionB b= new AvionB(1);
     AvionC c= new AvionC(1);
     private Object formatter;
     private Object scanner;
+    /**
+     * metodo menu opciones
+     */
     public void menu() throws ParseException{
         HashMap<String, Avion> aviones = new HashMap<String, Avion>();
         aviones=me.llenar();
@@ -252,7 +266,9 @@ public class MetodoPrincipal {
                     break;
             }
         }
-    }
+    }/**
+     * metodo llenar map
+     */
     public static HashMap<String, Avion> llenar(){
         HashMap<String, Silla> sillas = new HashMap<String, Silla>();
         HashMap<String, Avion> aviones = new HashMap<String, Avion>();
@@ -369,6 +385,11 @@ public class MetodoPrincipal {
         aviones.put("avionc", avionc);
         return aviones;
         }
+    /**
+     * calcular total todos los aviones
+     * @param map avion
+     * @return total
+     */
     public Integer calcularNeto(HashMap<String, Avion> map){
         Integer total=0;
         for(Avion av:map.values()){

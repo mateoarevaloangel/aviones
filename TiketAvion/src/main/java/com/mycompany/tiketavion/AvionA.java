@@ -10,10 +10,22 @@ import java.util.HashMap;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class AvionA extends Avion{
+    /**
+     * mapa sillas vip
+     */
     HashMap<String, Silla> sillasVip;
+    /**
+     * mapa sillas normales
+     */
     HashMap<String, Silla> sillasNormales;
+    /**
+     * const aviona
+     * @param id id
+     */
     public AvionA(int id) {
         super(id);
     }
@@ -46,7 +58,9 @@ public class AvionA extends Avion{
 
     public void setAvion(String[] avion) {
         this.avion = avion;
-    }
+    }/**
+     * metodo crear avion
+     */
     public void crearAvion(){
         this.avion[0]="                    /\\       ";
         this.avion[1]="                   /  \\      ";
@@ -69,13 +83,19 @@ public class AvionA extends Avion{
         this.avion[18]="                  / | \\";
         this.avion[19]="                 /  |  \\";
         this.avion[20]="                ---------";
-    }
+    }/**
+     * metodo mostrar avion
+     */
     public void mostrar(){
         System.out.println("Avion A");
         for(int i = 0;i<=20;i++){
             System.out.println(avion[i]);
         }
-    }
+    }/**
+     * metodo calcular total
+     * return total 
+     */
+    
     public Integer calcularTotal(){
         total=0;
         for(Silla si:sillasVip.values()){

@@ -8,13 +8,36 @@ package com.mycompany.tiketavion;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Silla {
+    /**
+     * variable id
+     */
     int id;
+    /**
+     * variable estado
+     */
     char estado;
+    /**
+     * variable nombre
+     */
     String nombre;
+    /**
+     * objeto persona
+     */
     Persona persona;
+    /**
+     * variable precio
+     */
     int precio;
+    /**
+     * const silla
+     * @param id id
+     *  @param nombre nombre
+     * @param persona persona
+     */
     public Silla(int id, String nombre, Persona persona) {
         this.id = id;
         this.nombre = nombre;
@@ -60,7 +83,9 @@ public class Silla {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-    
+    /**
+     * metodo mostrar silla
+     */
     public void mostrarSilla(){
         System.err.println("Datos");
         System.err.println("numero: "+this.id);

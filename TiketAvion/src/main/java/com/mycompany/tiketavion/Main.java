@@ -11,14 +11,25 @@ import java.util.HashMap;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Main {
 
     /**
      * @param args the command line arguments
      */
+    /**
+     * avion c
+     */
     static AvionC avionc = new AvionC(1);
+    /**
+     * avion b
+     */
     static AvionA aviona = new AvionA(1);
+    /**
+     * avion a
+     */
     static AvionB avionb = new AvionB(1);
     static MetodoPrincipal me= new MetodoPrincipal();
     public static void main(String[] args) throws ParseException {

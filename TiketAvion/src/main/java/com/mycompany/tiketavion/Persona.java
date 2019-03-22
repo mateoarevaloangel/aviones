@@ -11,12 +11,27 @@ import java.util.Date;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Persona {
+    /**
+     * variable id
+     */
     int id;
+    /**
+     * variable nombre
+     */
     String nombre;
+    /**
+     * variable fecha
+     */
     Date  fecha;
-
+/**
+     * const persona
+     * @param  id id
+     * @param nombre nombre
+     */
     public Persona(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
@@ -45,7 +60,9 @@ public class Persona {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
+    /**
+     * metodo mostrar persona
+     */
     public void mostrarPersona(){
         System.err.println("numero: "+this.getId());
         System.err.println("numero: "+this.getNombre());
